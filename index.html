@@ -18,6 +18,14 @@
 .hero{background-image:linear-gradient(180deg,rgba(12,12,17,.74),rgba(12,12,17,.84)),url('images/hero-mobile.jpg');background-position:center center}
 #contact{background-image:linear-gradient(180deg,rgba(15,15,21,.88),rgba(15,15,21,.91)),url('images/contact-mobile.jpg');background-position:center center}
 }
+
+/* Mobile contact dock: flush to viewport edge, with content clearance. */
+@media(max-width:700px){
+ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+ .floating{position:fixed;inset:auto 0 0 0;left:0;bottom:0;transform:none;width:100%;max-width:none;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));border-radius:14px 14px 0 0;border-left:0;border-right:0;border-bottom:0;background:#101014f5;box-shadow:0 -6px 24px #0008;z-index:50}
+ .floating a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:8px 4px;font-size:13px}
+}
+@media(min-width:701px){.floating{display:none}}
 </style>
 </head>
 <body>
