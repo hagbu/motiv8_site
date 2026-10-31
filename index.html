@@ -51,6 +51,8 @@ window.addEventListener('pageshow', () => {
 });
 document.getElementById('year').textContent=new Date().getFullYear();
 const menu=document.querySelector('.menu-btn'),nav=document.querySelector('nav');menu.addEventListener('click',()=>{const opened=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(opened));});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');}));
+// Close the mobile navigation when the visitor scrolls the page.
+window.addEventListener('scroll',()=>{if(nav.classList.contains('open')){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');}},{passive:true});
 document.getElementById('lead-form').addEventListener('submit',e=>{e.preventDefault();const f=e.currentTarget;if(!f.reportValidity())return;const name=f.elements.name.value.trim(),phone=f.elements.phone.value.trim(),goal=f.elements.goal.value;if(!name||!phone)return;const message='היי דניאל, הגעתי דרך אתר MOTIV8 ואשמח לשמוע פרטים על הסטודיו.\nשם: '+name+'\nטלפון: '+phone+'\nמטרה: '+goal;window.open('https://wa.me/972526526406?text='+encodeURIComponent(message),'_blank','noopener,noreferrer');});
 document.querySelectorAll('.testimonial-arrow').forEach(btn=>btn.addEventListener('click',()=>{const track=document.querySelector('.testimonial-track');const card=track.querySelector('.testimonial-card');const step=card.getBoundingClientRect().width+16;track.scrollBy({left:btn.classList.contains('next')?-step:step,behavior:'smooth'});}));
 </script></body></html>
